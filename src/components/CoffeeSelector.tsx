@@ -5,18 +5,16 @@ const CoffeeSelector = () => {
   const [selectedCoffeeCount, setSelectedCoffeeCount] = useState(5);
 
   // Placeholder QR codes - in a real implementation, these would be different QR codes for different amounts
-  const qrCodes = {
-    1: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    2: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    3: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    4: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    5: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    6: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    7: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    8: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    9: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E",
-    10: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000'/%3E%3Crect x='10' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='10' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='50' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='90' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='130' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='90' width='20' height='20' fill='%23fff'/%3E%3Crect x='10' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='50' y='170' width='20' height='20' fill='%23fff'/%3E%3Crect x='170' y='170' width='20' height='20' fill='%23fff'/%3E%3C/svg%3E"
-  };
+  const qrCodes = Object.fromEntries(
+    Array.from({ length: 10 }, (_, i) => {
+      const count = i + 1;
+      const amount = count * 10000;
+      return [
+        count,
+        `https://img.vietqr.io/image/970432-153561796-qr_only.png?amount=${amount}&addInfo=Donate`
+      ];
+    })
+  );
 
   const calculatePrice = (coffeeCount: number) => {
     return (coffeeCount * 10).toFixed(3);
@@ -35,8 +33,8 @@ const CoffeeSelector = () => {
         {/* QR Code Section */}
         <div className="flex flex-col items-center">
           <div className="w-64 h-64 bg-card border-2 border-border rounded-lg p-4 flex items-center justify-center">
-            <img 
-              src={qrCodes[selectedCoffeeCount as keyof typeof qrCodes]} 
+            <img
+              src={qrCodes[selectedCoffeeCount as keyof typeof qrCodes]}
               alt={`QR Code for ${selectedCoffeeCount} coffee${selectedCoffeeCount > 1 ? 's' : ''}`}
               className="w-full h-full object-contain"
             />
@@ -46,9 +44,9 @@ const CoffeeSelector = () => {
         {/* Coffee Count Section */}
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-8 mb-6">
-            <img 
-              src={coffeeCup} 
-              alt="Coffee cup" 
+            <img
+              src={coffeeCup}
+              alt="Coffee cup"
               className="w-20 h-20 object-contain"
             />
             <span className="text-6xl font-bold text-foreground">×</span>
@@ -66,11 +64,10 @@ const CoffeeSelector = () => {
           <button
             key={number}
             onClick={() => setSelectedCoffeeCount(number)}
-            className={`w-16 h-16 rounded-full border-2 text-xl font-semibold transition-all duration-200 hover:scale-105 ${
-              selectedCoffeeCount === number
-                ? 'bg-warm-accent text-white border-warm-accent shadow-lg'
-                : 'bg-background text-foreground border-border hover:border-muted-foreground'
-            }`}
+            className={`w-16 h-16 rounded-full border-2 text-xl font-semibold transition-all duration-200 hover:scale-105 ${selectedCoffeeCount === number
+              ? 'bg-warm-accent text-white border-warm-accent shadow-lg'
+              : 'bg-background text-foreground border-border hover:border-muted-foreground'
+              }`}
           >
             {number}
           </button>
